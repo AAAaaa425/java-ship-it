@@ -6,8 +6,7 @@ public abstract class Parcel {
     protected String deliveryAddress;
     protected int sendDay;
 
-    public Parcel(String description, int weight,
-                  String deliveryAddress, int sendDay) {
+    public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
         this.description = description;
         this.weight = weight;
         this.deliveryAddress = deliveryAddress;
@@ -19,29 +18,12 @@ public abstract class Parcel {
     }
 
     public void deliver() {
-        System.out.println("Посылка <<" + description
-                + ">> доставлена по адресу " + deliveryAddress);
-    }
-
-    public int calculateDeliveryCost() {
-        return weight * getBaseCost();
+        System.out.println("Посылка <<" + description + ">> доставлена по адресу " + deliveryAddress);
     }
 
     protected abstract int getBaseCost();
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public int getSendDay() {
-        return sendDay;
+    public int calculateDeliveryCost() {
+        return weight * getBaseCost();
     }
 }

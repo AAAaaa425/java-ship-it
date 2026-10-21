@@ -1,7 +1,6 @@
 package ru.yandex.practicum.delivery;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
@@ -10,33 +9,30 @@ public class ParcelBox<T extends Parcel> {
     private final List<T> parcels = new ArrayList<>();
 
     public ParcelBox(int maxWeight) {
-        if (maxWeight < 0) {
-            throw new IllegalArgumentException(
-                    "Максимальный вес не может быть отрицательным"
-            );
-        }
         this.maxWeight = maxWeight;
     }
 
-    public boolean addParcel(T parcel) {
-        int totalWeight = parcel.getWeight();
+    public void addParcel(T parcel) {
+        int currentWeight = 0;
 
-        for (T item : parcels) {
-            totalWeight += item.getWeight();
+        for (T p : parcels) {
+            currentWeight += p.weight;
         }
 
-        if (totalWeight > maxWeight) {
-            System.out.println(
-                    "Превышен максимальный вес коробки. Посылка не добавлена."
-            );
-            return false;
+        if (currentWeight + parcel.weight > maxWeight) {
+            System.out.println("Коробка переполнена! Посылка не добавлена.");
+            return;
         }
 
         parcels.add(parcel);
-        return true;
+        System.out.println("Посылка добавлена в коробку.");
     }
 
     public List<T> getAllParcels() {
-        return Collections.unmodifiableList(parcels);
+        return new ArrayList<>(parcels);
+    }
+
+    public boolean containsParcel(T parcel) {
+        return parcels.contains(parcel);
     }
 }
