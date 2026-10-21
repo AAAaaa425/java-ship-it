@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
 
+    int currentWeight = 0;
     private final int maxWeight;
     private final List<T> parcels = new ArrayList<>();
 
@@ -13,17 +14,13 @@ public class ParcelBox<T extends Parcel> {
     }
 
     public void addParcel(T parcel) {
-        int currentWeight = 0;
-
-        for (T p : parcels) {
-            currentWeight += p.weight;
-        }
 
         if (currentWeight + parcel.weight > maxWeight) {
             System.out.println("Коробка переполнена! Посылка не добавлена.");
             return;
         }
 
+        currentWeight = currentWeight + parcel.weight;
         parcels.add(parcel);
         System.out.println("Посылка добавлена в коробку.");
     }

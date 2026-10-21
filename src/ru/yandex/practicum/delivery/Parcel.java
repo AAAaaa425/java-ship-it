@@ -5,12 +5,14 @@ public abstract class Parcel {
     protected int weight;
     protected String deliveryAddress;
     protected int sendDay;
+    private final int cost;
 
-    public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
+    public Parcel(String description, int weight, String deliveryAddress, int sendDay, int cost) {
         this.description = description;
         this.weight = weight;
         this.deliveryAddress = deliveryAddress;
         this.sendDay = sendDay;
+        this.cost = cost;
     }
 
     public void packageItem() {
@@ -21,9 +23,7 @@ public abstract class Parcel {
         System.out.println("Посылка <<" + description + ">> доставлена по адресу " + deliveryAddress);
     }
 
-    protected abstract int getBaseCost();
-
     public int calculateDeliveryCost() {
-        return weight * getBaseCost();
+        return weight * cost;
     }
 }
