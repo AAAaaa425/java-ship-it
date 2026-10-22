@@ -1,5 +1,11 @@
 package ru.yandex.practicum.delivery;
 
+import ru.yandex.practicum.delivery.parcels.FragileParcel;
+import ru.yandex.practicum.delivery.parcels.ParcelBox;
+import ru.yandex.practicum.delivery.parcels.PerishableParcel;
+import ru.yandex.practicum.delivery.parcels.StandardParcel;
+import ru.yandex.practicum.delivery.tracking.Trackable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -166,21 +172,21 @@ public class DeliveryApp {
             case 1:
                 System.out.println("Стандартные посылки:");
                 for (StandardParcel parcel : standardBox.getAllParcels()) {
-                    System.out.println(parcel.description);
+                    System.out.println(parcel.getDescription());
                 }
                 break;
 
             case 2:
                 System.out.println("Хрупкие посылки:");
                 for (FragileParcel parcel : fragileBox.getAllParcels()) {
-                    System.out.println(parcel.description);
+                    System.out.println(parcel.getDescription());
                 }
                 break;
 
             case 3:
                 System.out.println("Скоропортящиеся посылки:");
                 for (PerishableParcel parcel : perishableBox.getAllParcels()) {
-                    System.out.println(parcel.description);
+                    System.out.println(parcel.getDescription());
                 }
                 break;
 

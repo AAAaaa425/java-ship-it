@@ -1,7 +1,11 @@
 package ru.yandex.practicum;
 
-import ru.yandex.practicum.delivery.*;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.delivery.parcels.FragileParcel;
+import ru.yandex.practicum.delivery.parcels.ParcelBox;
+import ru.yandex.practicum.delivery.parcels.PerishableParcel;
+import ru.yandex.practicum.delivery.parcels.StandardParcel;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DeliveryCostTest {

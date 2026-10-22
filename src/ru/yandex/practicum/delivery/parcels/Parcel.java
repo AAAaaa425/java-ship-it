@@ -1,4 +1,4 @@
-package ru.yandex.practicum.delivery;
+package ru.yandex.practicum.delivery.parcels;
 
 public abstract class Parcel {
     protected String description;
@@ -25,5 +25,9 @@ public abstract class Parcel {
 
     public int calculateDeliveryCost() {
         return weight * cost;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

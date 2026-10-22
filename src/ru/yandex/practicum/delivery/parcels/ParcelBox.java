@@ -1,11 +1,11 @@
-package ru.yandex.practicum.delivery;
+package ru.yandex.practicum.delivery.parcels;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
 
-    int currentWeight = 0;
+    private int currentWeight = 0;
     private final int maxWeight;
     private final List<T> parcels = new ArrayList<>();
 
